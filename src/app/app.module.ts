@@ -31,6 +31,7 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { FacilitysComponent } from "./facilitys/facilitys.component";
 import { MatBadgeModule } from "@angular/material/badge";
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatExpansionModule,
     MatButtonToggleModule,
     MatBadgeModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
