@@ -1,5 +1,4 @@
 <app-header></app-header>
-<pre>{{apiService.hotelConfig$|async|json}}</pre>
 <div class="container">
   <div class="content">
     <div
@@ -51,3 +50,5 @@
   </div>
 </div>
 <app-footer></app-footer>
+<pre><p>HotelConfig$</p>{{apiService.hotelConfig$|async|json}}</pre>
+<pre><p>Rooms$</p>{{apiService.rooms$|async|json}}</pre>

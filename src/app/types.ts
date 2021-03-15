@@ -100,10 +100,10 @@ export interface HotelConfig {
     City:                               string;
     Country:                            null;
     Address:                            string;
-    Airports:                           null;
+    Airports:                           string;
     PropertyType:                       number;
     Image:                              string;
-    Rating:                             null;
+    Rating:                             string;
     Stars:                              number;
     Description:                        string;
     Amenitys:                           string;
@@ -111,9 +111,9 @@ export interface HotelConfig {
     Languages:                          string;
     DefaultLanguage:                    string;
     SeoUrl:                             string;
-    SeoTitle:                           null;
-    SeoDescription:                     null;
-    SeoKeywords:                        null;
+    SeoTitle:                           string;
+    SeoDescription:                     string;
+    SeoKeywords:                        string;
     ProviderType:                       string;
     CheckinTime:                        string;
     CheckoutTime:                       string;
@@ -192,22 +192,22 @@ export interface HotelConfig {
     PASSISSUEDATE_VISIBLE:              boolean;
     BASKET_INSTALLMENT_VISIBLE:         boolean;
     PROFILE_TCCITIZEN_VISIBLE:          boolean;
-    PROFILE_TCCITIZEN_DISCRIPTION:      null;
+    PROFILE_TCCITIZEN_DISCRIPTION:      boolean;
     PAYAT_SERVICE_VISIBLE:              boolean;
     HOTEL_CHILDBIRTDHDATEREQUIRED:      boolean;
-    CAMPAINOREXTRASERVICELABEL:         null;
-    HIDE_AVAILABILITY:                  null;
+    CAMPAINOREXTRASERVICELABEL:         string;
+    HIDE_AVAILABILITY:                  boolean;
     INPUTVALUUPPERCASE:                 boolean;
     HOTELVOUCHER_VISIBLE:               boolean;
     DESIREDTOTALPRICE_VISIBLE:          boolean;
-    CONTACT_TAXNO:                      boolean;
-    CONTACT_TC:                         boolean;
+    CONTACT_TAXNO:                      string;
+    CONTACT_TC:                         string;
     BUYLATERBUTTON_VISIBLE:             boolean;
     HOTELROOMTYPEIMAGE_VISIBLE:         boolean;
     HOTELROOMDAILYPRICE_VISIBLE:        boolean;
     TICKETPERSON_ALLROW:                boolean;
     VOUCHERPRICE_VISIBLE:               boolean;
-    BASKET_SHOWTROYCARDLOGO:            null;
+    BASKET_SHOWTROYCARDLOGO:            boolean;
     HOTEL_SEARCHBOXPROMOTION_VISIBLE:   boolean;
     BASKET_INSTALLMENT_OPEN:            boolean;
     BASKET_RESERVATION_INFO:            boolean;
@@ -228,7 +228,7 @@ export interface HotelConfig {
     BASKET_PROMOTION_VISIBLE:           boolean;
     GARANTIPAYENABLED:                  boolean;
     HOSTING3DPAYENABLED:                boolean;
-    HOTELITEM_HIDECHECKOUT:             null;
+    HOTELITEM_HIDECHECKOUT:             boolean;
     ENABLEONLINECHECKIN:                boolean;
     ENABLEONLINEPAYMENT:                boolean;
     ENABLEONLINECHECKOUT:               boolean;
@@ -357,4 +357,204 @@ export interface BOOKINGPARAMSRESETDATE
     HOTELID?:                number;
     IPCOUNTRY?:              string;
     IPADDRESS?:              string;
+}
+
+// buradan sonrasını tekrar degerlendireceğiz
+
+export interface Basket {
+    PortalId:                number;
+    Domain:                  string;
+    Items:                   Items;
+    Server:                  Server;
+    Profile:                 Profile;
+    PaymentGate:             null;
+    PaymentType:             PaymentType[];
+    Currency:                string;
+    Agreement:               string;
+    KvkkAgreement:           string;
+    BeAwareOfPromotions:     boolean;
+    AgreementNotShowVoucher: boolean;
+    isPreReservation:        boolean;
+    isPayedPartialPayment:   boolean;
+    ExchangeRate:            number;
+    ValidUntil:              Date;
+    BuyLater:                BuyLater;
+    Bonus:                   null;
+}
+
+export interface BuyLater {
+    Id:   string;
+    Date: string;
+}
+
+export interface Items {
+    HotelItems:        HotelItem[];
+    TicketItems:       any[];
+    FlightItems:       any[];
+    TransferItems:     any[];
+    TourItems:         any[];
+    ExtraServiceItems: any[];
+    MedicalItems:      any[];
+}
+
+export interface HotelItem {
+    ID:                           number;
+    ErsId:                        number;
+    HotelId:                      number;
+    Address:                      string;
+    BoardType:                    string;
+    CheckInTime:                  string;
+    CheckOutTime:                 string;
+    NightCount:                   number;
+    PriceBlock:                   string;
+    _PriceBlock:                  PriceBlock;
+    HotelName:                    string;
+    HotelStar:                    number;
+    LanguageCode:                 string;
+    Latitude:                     number;
+    Longitude:                    number;
+    Person:                       Person[];
+    RateType:                     string;
+    RoomType:                     string;
+    Uid:                          string;
+    HotelImageUrl:                string;
+    Hash:                         string;
+    RoomCount:                    number;
+    PayAtHotel:                   boolean;
+    PayAtHotelWithCCGuarantee:    boolean;
+    PayAtHotelWithCCGuaranteeB2B: boolean;
+    PayByCC:                      boolean;
+    PayByDownPayment:             boolean;
+    PayByWire:                    boolean;
+    PayByAgency:                  boolean;
+    PayByMailOrder:               boolean;
+    PayByMailOrderB2B:            boolean;
+    PayAtHotelB2B:                boolean;
+    PayByCCB2B:                   boolean;
+    PayByWireB2B:                 boolean;
+    BankInformation:              string;
+    IsPreReservation:             boolean;
+    PaymentInformation:           null;
+    HotelCity:                    string;
+    HotelCountry:                 null;
+    HotelPhone:                   string;
+    HotelEmail:                   string;
+    paidPrice:                    number;
+    ExtraPaymentInformation:      string;
+    RoomInfo:                     string;
+    RoomTypeGroupName:            null;
+    RoomTypeGroupEmail:           null;
+    RoomTypeGroupPhone:           null;
+    RoomTypeId:                   number;
+}
+
+export interface Person {
+    Gender:    string;
+    Name:      string;
+    Surname:   string;
+    BirthDate: string;
+    Phone:     string;
+    PassNo:    string;
+    PassDue:   string;
+    PassCard:  string;
+    Type:      string;
+    Age:       string;
+    RoomNo:    number;
+}
+
+export interface PriceBlock {
+    PriceParams:  PriceParams;
+    ResParams:    ResParams;
+    OfferXml:     string;
+    ProviderCode: string;
+}
+
+export interface PriceParams {
+    CurrencyCode:       string;
+    PosId:              null;
+    InstallmentCount:   null;
+    PayNowPercent:      number;
+    Price:              number;
+    PriceContract:      number;
+    PromotionCode:      string;
+    PromotionAmount:    number;
+    Commission:         number;
+    CommissionDelta:    number;
+    PosCommissionDelta: number;
+    FinalPrice:         number;
+    Adult:              number;
+    ChildAges:          string;
+    CalculationTime:    string;
+}
+
+export interface ResParams {
+    CancellationInformation:  string;
+    RoomTypeId:               number;
+    BoardTypeId:              number;
+    RateTypeId:               number;
+    MarketId:                 null;
+    Market:                   null;
+    HotelId:                  number;
+    Checkin:                  Date;
+    Checkout:                 Date;
+    RoomCount:                number;
+    CountryCode:              string;
+    _CancellationInformation: string;
+    CheckinNote:              null;
+    CheckoutNote:             null;
+    RoomNo:                   null;
+}
+
+export interface PaymentType {
+    PayableAmount: number;
+    Currency:      string;
+    Name:          string;
+    Id:            number;
+}
+
+export interface Profile {
+    Name:                string;
+    Surname:             string;
+    Email:               string;
+    Address:             string;
+    Note:                null;
+    BasketCookieId:      string;
+    City:                string;
+    Country:             string;
+    Id:                  string;
+    Language:            string;
+    Phone:               string;
+    PortalSession:       string;
+    TaxAddress:          string;
+    TaxName:             string;
+    TaxNo:               string;
+    TaxPlaceName:        string;
+    TaxType:             string;
+    TaxPhone:            string;
+    TaxNotTc:            boolean;
+    TcCitizen:           boolean;
+    Use3d:               boolean;
+    ZipCode:             string;
+    IAgree:              boolean;
+    BasketTotalCurrency: string;
+    BasketTotalPayment:  string;
+    ProjectCode:         string;
+    VoucherNo:           string;
+}
+
+export interface Server {
+    Price:                number;
+    PromotionAmount:      number;
+    PayNow:               number;
+    Commission:           number;
+    CommisionDelta:       number;
+    FinalCommissionDelta: number;
+    FinalPrice:           number;
+    BankCommission:       number;
+    PosCommisionDelta:    number;
+    PromotionCodes:       any[];
+    PayedTotalAmount:     number;
+    PriceContract:        number;
+    PayNowPercent:        number;
+    PayNowPercentAmount:  number;
 }
