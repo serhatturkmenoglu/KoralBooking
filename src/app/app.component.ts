@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit()
   {
-    this.apiService.hotelConfig$ = this.apiService.getHotelConfig().pipe(share()) ;
+    this.apiService.hotelConfig$.subscribe()  ;
   }
 
 }

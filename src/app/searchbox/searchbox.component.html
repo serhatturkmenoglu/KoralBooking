@@ -1,8 +1,9 @@
-<div fxLayout="row wrap" fxLayoutGap="5px">
+<div fxLayout="row wrap" fxLayoutGap="5px" [formGroup]="searchFormGroup">
   <div fxFlex="15" fxFlex.xs="100" fxFlex.sm="32">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Giriş</mat-label>
       <input
+        formControlName="CHECKIN"
         matInput
         [min]="minDate"
         [max]="maxDate"
@@ -16,8 +17,8 @@
     <mat-form-field>
       <mat-label> Gece </mat-label>
       <i matPrefix class="far fa-moon"></i>
-      <mat-select>
-        <ng-container *ngFor="let asd of mockArrayCreator(60); index as i">
+      <mat-select formControlName="DAYS">
+        <ng-container *ngFor="let _ of mock60; index as i">
           <mat-option [value]="i">{{ i }}</mat-option>
         </ng-container>
       </mat-select>
@@ -28,7 +29,8 @@
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Çıkış</mat-label>
       <input
-        matInput
+      formControlName="CHECKOUT"
+      matInput
         [min]="minDate"
         [max]="maxDate"
         [matDatepicker]="checkOut"
@@ -44,8 +46,8 @@
         <mat-form-field class="w100">
           <mat-label> Adult </mat-label>
           <mat-icon matPrefix>person</mat-icon>
-          <mat-select>
-            <ng-container *ngFor="let asd of mockArrayCreator(10); index as i">
+          <mat-select formControlName="ADULT">
+            <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
               <mat-option [value]="i">{{ i }}</mat-option>
             </ng-container>
           </mat-select>
@@ -56,8 +58,8 @@
         <mat-form-field class="w100">
           <mat-label> Child </mat-label>
           <mat-icon matPrefix>face</mat-icon>
-          <mat-select>
-            <ng-container *ngFor="let asd of mockArrayCreator(10); index as i">
+          <mat-select formControlName="CHILDAGES">
+            <ng-container *ngFor="let i of [0,1,2,3,4]">
               <mat-option [value]="i">{{ i }}</mat-option>
             </ng-container>
           </mat-select>
@@ -70,13 +72,14 @@
     <mat-form-field>
       <mat-icon matPrefix>card_giftcard</mat-icon>
       <mat-label> Promosyon </mat-label>
-      <input matInput type="text" />
+      <input formControlName="PROMOCODE" matInput type="text" />
     </mat-form-field>
   </div>
 
   <div fxFlex="16" fxFlex.xs="100" fxFlex.sm="24">
     <div style="margin: auto; display: flex; align-items: center; height: 100%">
       <button
+        (click)="onSearch()"
         mat-raised-button
         style="font-size: 20px; width: 100%"
         color="accent"

@@ -32,6 +32,7 @@ import { FacilitysComponent } from "./facilitys/facilitys.component";
 import { MatBadgeModule } from "@angular/material/badge";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FlexLayoutModule,
     NoopAnimationsModule,
@@ -68,7 +71,8 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
     MatButtonToggleModule,
     MatBadgeModule,
     MatSidenavModule,
-    HttpClientModule
+    HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent],
