@@ -1,12 +1,12 @@
 <div fxLayout="row wrap" class="hotelInfoPad">
   <div fxFlex="70">
-    <h1 style="margin: 0px">MyHotel</h1>
+    <h1 style="margin: 0px">{{hotelInfo.HOTELNAME}}</h1>
     <div class="hotel-detail-info-stars">
-      <mat-icon>star</mat-icon><mat-icon>star</mat-icon
-      ><mat-icon>star</mat-icon>
+      <mat-icon>star</mat-icon>
+      <P>{{hotelInfo.STARS}}</P>
     </div>
 
-    <div class="hotel-detail-info-addres">Faralya 1 / Mugla, Turkey</div>
+    <div class="hotel-detail-info-addres">{{hotelInfo.ADDRESS}}</div>
   </div>
   <div fxFlex="30">
     <div

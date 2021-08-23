@@ -16,7 +16,7 @@ export class HotelphotoComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.hotelConfig$.subscribe((val) => {this.photos = val.photos});
-    this.apiService.hotelConfig$.subscribe((val) => {console.log(val.photos[0].URL)});
+    this.apiService.hotelConfig$.subscribe((val) => {this.selectedPhoto = val.photos[0].URL});
   }
 
   selectPhoto(p: HotelPhoto){
