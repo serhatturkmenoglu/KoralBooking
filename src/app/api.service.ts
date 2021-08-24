@@ -12,6 +12,7 @@ import { HotelConfig, Rooms, SearchParams } from './types';
   providedIn: 'root'
 })
 
+
 export class ApiService {
   hotelConfig$ = this.getHotelConfig().pipe(shareReplay());
   rooms$ = new BehaviorSubject<Rooms>([]);
