@@ -1,12 +1,12 @@
 <div fxLayout="row wrap" class="hotelInfoPad">
   <div fxFlex="70">
-    <h1 style="margin: 0px">MyHotel</h1>
+    <h1 style="margin: 0px">{{hotelInfo.HOTELNAME}}</h1>
     <div class="hotel-detail-info-stars">
-      <mat-icon>star</mat-icon><mat-icon>star</mat-icon
-      ><mat-icon>star</mat-icon>
+      <mat-icon>star</mat-icon>
+      <P>{{hotelInfo.STARS}}</P>
     </div>
 
-    <div class="hotel-detail-info-addres">Faralya 1 / Mugla, Turkey</div>
+    <div class="hotel-detail-info-addres">{{hotelInfo.ADDRESS}}</div>
   </div>
   <div fxFlex="30">
     <div
@@ -31,21 +31,21 @@
     <div>
       <a target="_blank" href="mailto:e.cetinkaya@talyabilisim.com.tr"
         ><mat-icon>email</mat-icon>
-        <span>e.cetinkaya@talyabilisim.com.tr</span>
+        <span>{{hotelInfo.EMAIL}}</span>
       </a>
     </div>
 
     <div>
       <a href="tel:90 252 642 1140"
         ><mat-icon>phone</mat-icon>
-        <span>90 252 642 1140</span>
+        <span>{{hotelInfo.Phone}}</span>
       </a>
     </div>
 
     <div>
       <a target="_blank" href="myhotel.com" class="ng-star-inserted"
         ><mat-icon>link</mat-icon>
-        <span>myhotel.com</span>
+        <span>{{hotelInfo.Web}}</span>
       </a>
     </div>
   </div>
@@ -62,10 +62,7 @@
     </div>
   </div>
 
-  <div fxFlex="100">
-    <p>
-      Kaş Antalya bölgesi Çukurbağ Yarımadasındaki <strong>MyHotel</strong> Kaş
-      ilçesindeki oteller arasında en iyi konaklama deneyimi sunmaktadır.
-    </p>
+  <div fxFlex="100">    
+      {{hotelInfo.Description}}    
   </div>
 </div>
